@@ -94,3 +94,50 @@ POST
     "code": 200
 }
 ```
+
+## 3、气味信息（批量查询）
+
+### url 地址
+
+/api/partner/scent/list
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| nos | String | 气味编号，英文逗号隔开 | 1,2,3 |
+
+### 返回数据
+
+```json
+{
+    "msg": "success",
+    "data": [
+        {
+            "no": 1,
+            "name": "柠檬草",
+            "img": "/scents/ningmengcaoheshuweicao.png",
+            "color": "#A9DAD7",
+            "period": 73500,
+            "desc":""
+        },
+        {
+            "no": 2,
+            "name": "小山坡",
+            "img": "/scents/xiaoshanpo.png",
+            "color": "#C2E593",
+            "period": 72000,
+            "desc":""
+        },
+        {
+            "no": 3,
+            "name": "柠檬",
+            "img": "/scents/ningmeng.png",
+            "color": "#C2E593",
+            "period": 105000,
+            "desc":""
+        }
+    ],
+    "code": 200
+}
+```
