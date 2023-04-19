@@ -141,3 +141,37 @@ POST
     "code": 200
 }
 ```
+
+### Demo
+```javascript
+    const accessId = '$accessid';
+    const accessSecret = '$accessSecret';
+    const accessType = 'application/json';
+    const timestamp = parseInt((new Date()).getTime() / 1000);
+    const nonce = parseInt(Math.random() * 1e8);
+    const version = '1.0';
+
+    const strResult = `accept:${accessType}*`
+      + `signature-nonce:${nonce}*`
+      + `signature-version:${version}*`
+      + `timestamp:${timestamp}*`
+      + `/api/partner/scent/list`;
+
+    const cryptoResult = crypto.HmacSHA1(strResult, accessSecret);
+    const cryptoBase64 = cryptoResult.toString(crypto.enc.Base64);
+    const authorization = `qwwg ${accessId}:${cryptoBase64}`;
+
+    axios.post('https://xiaobo.qiweiwangguo.com/api/partner/scent/list', {
+      nos: '1,2,3',
+    }, {
+      headers: {
+        'Authorization': authorization,
+        'timestamp': timestamp,
+        'signature-nonce': nonce,
+        'signature-version': '1.0',
+        'accept': 'application/json'
+      }
+    });
+
+```
+
