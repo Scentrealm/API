@@ -39,10 +39,10 @@ POST
     },
     "data": [
         {
-            "mac":"78:21:84:75:32:2E"
-						"name":"scent78218475322e"
-						"nickname":""
-						"type":"wifi"
+            "mac":"78:21:84:75:32:2E",
+            "name":"scent78218475322e",
+            "nickname":"",
+            "type":"wifi"
         }
     ],
     "code": 200
