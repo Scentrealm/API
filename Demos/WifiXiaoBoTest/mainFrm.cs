@@ -14,8 +14,8 @@ namespace WifiXiaoBoTest
 {
     public partial class mainFrm : Form
     {
-        private string accessId = "mHPuJqgpbxMlBtF";
-        private string accessSecret = "BLQ3ZxSznyXckF6zVbv2eHivybpuOcqtFYW";
+        private string accessId = "你的accessId";//填写访问accessId
+        private string accessSecret = "你的accessSecret";//填写访问accessSecret
 
         private const string accessType = "application/json";
 

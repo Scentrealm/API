@@ -38,21 +38,6 @@ namespace WifiXiaoBoTest
 
         public static string RequestToken { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static string AccessKey
-        {
-            get;
-            set;
-        } = "mHPuJqgpbxMlBtF";
-
-        public static string AccessSecret
-        {
-            get;
-            set;
-        } = "BLQ3ZxSznyXckF6zVbv2eHivybpuOcqtFYW";
-
         public static string AccessType
         {
             get;
