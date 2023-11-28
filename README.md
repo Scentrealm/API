@@ -142,7 +142,7 @@ POST
 }
 ```
 
-### Demo
+### Demo 批量获取气味数据
 ```javascript
     const accessId = '$accessid';
     const accessSecret = '$accessSecret';
@@ -161,6 +161,7 @@ POST
     const cryptoBase64 = cryptoResult.toString(crypto.enc.Base64);
     const authorization = `qwwg ${accessId}:${cryptoBase64}`;
 
+    // 批量获取气味列表demo。 如果需要其他功能，请将url改为对应功能的 url
     axios.post('https://xiaobo.qiweiwangguo.com/api/partner/scent/list', {
       nos: '1,2,3',
     }, {
