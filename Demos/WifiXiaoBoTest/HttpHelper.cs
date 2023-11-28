@@ -21,7 +21,6 @@ namespace WifiXiaoBoTest
         private static string API_Upload = "/upload";
 
         public static string API_SmellPlay = "/iot/playScene";
-        public static string API_StopPlay = "/iot/stop";
 
         public static string API_QrCodeToken = "/activity/image/code";
 
@@ -30,6 +29,39 @@ namespace WifiXiaoBoTest
         public static string API_GetScent = "/api/partner/scent";
 
         public static string API_GetScents = "/api/partner/scent/list";
+
+        /// <summary>
+        /// 获取设备列表
+        /// </summary>
+        public static string API_DevInfo = "/api/partner/device";//获取设备列表
+        /// <summary>
+        /// 获取设备信息
+        /// </summary>
+        public static string API_DevDetail = "/api/partner/device/info";//获取设备列表
+        /// <summary>
+        /// 设备胶囊信息
+        /// </summary>
+        public static string API_DevCapsuleDetail = "/api/partner/device/capsule";//获取设备列表
+        /// <summary>
+        /// 播放气味
+        /// </summary>
+        public static string API_Play = "/api/partner/device/play";
+        /// <summary>
+        /// 停止播放气味
+        /// </summary>
+        public static string API_StopPlay = "/api/partner/device/stop";
+        /// <summary>
+        /// 设备在线状态
+        /// </summary>
+        public static string API_DevStatus = "/api/partner/device/status";
+        /// <summary>
+        /// 设备在线状态（实时查询）
+        /// </summary>
+        public static string API_DevOnlineStatus = "/api/partner/device/status2";
+        /// <summary>
+        /// 多路播放
+        /// </summary>
+        public static string API_Mixed = "/api/partner/device/playMixed";
 
         /// <summary>
         /// 
@@ -43,7 +75,6 @@ namespace WifiXiaoBoTest
             get;
             set;
         } = "application/json";
-
 
 
 
@@ -400,16 +431,16 @@ namespace WifiXiaoBoTest
         }
 
 
-        public static BaseResponse<string> SmellPlay(int chl, int times,string macStr)
-        {
-            string paramsstr = string.Format(@"mac={0}&channel={1}&times={2}", macStr, chl, times);
-            paramsstr = paramsstr.Replace('\'', '\"');
-            string response = HttpPost(baseUrl_TEST, API_SmellPlay, paramsstr);
-            if (string.IsNullOrEmpty(response))
-                return null;
-            var sr = JsonConvert.DeserializeObject<BaseResponse<string>>(response);
-            return sr;
-        }
+        //public static BaseResponse<string> SmellPlay(int chl, int times,string macStr)
+        //{
+        //    string paramsstr = string.Format(@"mac={0}&channel={1}&times={2}", macStr, chl, times);
+        //    paramsstr = paramsstr.Replace('\'', '\"');
+        //    string response = HttpPost(baseUrl_TEST, API_SmellPlay, paramsstr);
+        //    if (string.IsNullOrEmpty(response))
+        //        return null;
+        //    var sr = JsonConvert.DeserializeObject<BaseResponse<string>>(response);
+        //    return sr;
+        //}
 
         public static BaseResponse<string> StopPlay(int chl,string macStr)
         {
@@ -468,6 +499,136 @@ namespace WifiXiaoBoTest
                 return null;
             }
             var sr = JsonConvert.DeserializeObject<BaseResponse<ScentItem>>(response);
+            return sr;
+        }
+
+
+        public static BaseResponse<List<DevItem>> GetDevList(int pg, int num, string authorization, long timestamp, int nonce)
+        {
+            string strApiSub = string.Format(@"?p={0}&n={1}", pg, num);
+            string strApi = API_DevInfo + strApiSub;
+            string response = HttpPostNew(baseUrl, strApi, "", authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<List<DevItem>>>(response);
+            return sr;
+        }
+
+        /// <summary>
+        /// 设备信息
+        /// </summary>
+        /// <returns></returns>
+        public static BaseResponse<DevInfo> GetDevDetail(string macstring, string authorization, long timestamp, int nonce)
+        {
+            DevMac mac = new DevMac();
+            mac.Mac = macstring;
+            string param = GetTString(mac);
+
+            string response = HttpPostNew(baseUrl, API_DevDetail, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<DevInfo>>(response);
+            return sr;
+        }
+        /// <summary>
+        /// 设备胶囊信息
+        /// </summary>
+        /// <param name="macstring"></param>
+        /// <param name="authorization"></param>
+        /// <param name="timestamp"></param>
+        /// <param name="nonce"></param>
+        /// <returns></returns>
+        public static BaseResponse<List<Capsule>> GetDevCapsuleDetail(string macstring, string authorization, long timestamp, int nonce)
+        {
+            DevMac mac = new DevMac();
+            mac.Mac = macstring;
+            string param = GetTString(mac);
+
+            string response = HttpPostNew(baseUrl, API_DevCapsuleDetail, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<List<Capsule>>>(response);
+            return sr;
+        }
+
+
+        public static BaseResponse<string> SmellPlay(PlayParam playparam, string authorization, long timestamp, int nonce)
+        {
+            string param = GetTString(playparam);
+
+            string response = HttpPostNew(baseUrl, API_Play, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<string>>(response);
+            return sr;
+        }
+
+
+        public static BaseResponse<string> StopPlay(PlayParam playparam, string authorization, long timestamp, int nonce)
+        {
+            string param = GetTString(playparam);
+
+            string response = HttpPostNew(baseUrl, API_StopPlay, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<string>>(response);
+            return sr;
+        }
+
+        public static BaseResponse<string> GetDevStatus(string macstr, string authorization, long timestamp, int nonce)
+        {
+            DevMac mac = new DevMac();
+            mac.Mac = macstr;
+            string param = GetTString(mac);
+            //string param = GetTString(playparam);
+
+            string response = HttpPostNew(baseUrl, API_DevStatus, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<string>>(response);
+            return sr;
+        }
+
+        // DevStatus
+
+        public static BaseResponse<DevStatus> GetDevStatus2(string macstr, string authorization, long timestamp, int nonce)
+        {
+            DevMac mac = new DevMac();
+            mac.Mac = macstr;
+            string param = GetTString(mac);
+
+            string response = HttpPostNew(baseUrl, API_DevOnlineStatus, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<DevStatus>>(response);
+            return sr;
+        }
+
+
+        public static BaseResponse<string> MultiPlay(MixedPlayParam playparam, string authorization, long timestamp, int nonce)
+        {
+            string param = GetTString(playparam);
+
+            string response = HttpPostNew(baseUrl, API_Mixed, param, authorization, timestamp, nonce);
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            var sr = JsonConvert.DeserializeObject<BaseResponse<string>>(response);
             return sr;
         }
 

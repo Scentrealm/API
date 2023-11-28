@@ -96,4 +96,43 @@ namespace WifiXiaoBoTest.Models
             set;
         }
     }
+    /// <summary>
+    /// 胶囊信息
+    /// </summary>
+    public class Capsule
+    {
+        /// <summary>
+        /// 气味编号
+        /// </summary>
+        [JsonProperty("no")]
+        public int ScentId
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 气味通道
+        /// </summary>
+        [JsonProperty("channel")]
+        public int ChannelId
+        {
+            get;
+            set;
+        }
+
+        [JsonProperty("life")]
+        public int Life
+        {
+            get;
+            set;
+        }
+
+        [JsonProperty("status")]
+        public int Status
+        {
+            get;
+            set;
+        }
+    }
 }
