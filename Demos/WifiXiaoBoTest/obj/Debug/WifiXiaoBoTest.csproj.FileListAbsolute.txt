@@ -1,0 +1,12 @@
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\bin\Debug\WifiXiaoBoTest.exe.config
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\bin\Debug\WifiXiaoBoTest.exe
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\bin\Debug\WifiXiaoBoTest.pdb
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\bin\Debug\Newtonsoft.Json.xml
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.csproj.AssemblyReference.cache
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.mainFrm.resources
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.Properties.Resources.resources
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.csproj.GenerateResource.cache
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.csproj.CoreCompileInputs.cache
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.csproj.CopyComplete
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.exe
+E:\MyProjects\SDKServer\AScentRealmSdkServer\API\Demos\WifiXiaoBoTest\obj\Debug\WifiXiaoBoTest.pdb
