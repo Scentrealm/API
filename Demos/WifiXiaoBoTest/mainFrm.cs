@@ -14,8 +14,8 @@ namespace WifiXiaoBoTest
 {
     public partial class mainFrm : Form
     {
-        private string accessId = "mHPuJqgpbxMlBtF";//填写访问accessId   你的accessId
-        private string accessSecret = "BLQ3ZxSznyXckF6zVbv2eHivybpuOcqtFYW";//填写访问accessSecret  你的accessSecret
+        private string accessId = "你的accessId";//填写访问accessId   你的accessId
+        private string accessSecret = "你的accessSecret";//填写访问accessSecret  你的accessSecret
 
         private const string accessType = "application/json";
 
@@ -76,7 +76,6 @@ namespace WifiXiaoBoTest
             }
             else
             {
-
                 return;
             }
 
@@ -304,15 +303,20 @@ namespace WifiXiaoBoTest
         {
             string strMac = txtMac.Text.Trim();
 
-            timestamp = GetTimeStampTen();
-            int nonce = (int)(rd.NextDouble() * 1e8);
-            Console.WriteLine(string.Format("timestamp:{0},nonce:{1}", timestamp, nonce));
-            string strResult = string.Format("accept:{0}*signature-nonce:{1}*signature-version:{2}*timestamp:{3}*{4}", accessType, nonce, "1.0", timestamp, HttpHelper.API_DevOnlineStatus);
+            //timestamp = GetTimeStampTen();
+            //int nonce = (int)(rd.NextDouble() * 1e8);
+            //Console.WriteLine(string.Format("timestamp:{0},nonce:{1}", timestamp, nonce));
+            //string strResult = string.Format("accept:{0}*signature-nonce:{1}*signature-version:{2}*timestamp:{3}*{4}", accessType, nonce, "1.0", timestamp, HttpHelper.API_DevOnlineStatus);
 
-            string cryptoResult = HmacSHA1(strResult, accessSecret);//Base64String
-            string authorization = string.Format("qwwg {0}:{1}", accessId, cryptoResult);
+            //string cryptoResult = HmacSHA1(strResult, accessSecret);//Base64String
+            //string authorization = string.Format("qwwg {0}:{1}", accessId, cryptoResult);
 
-            var rtnResp = HttpHelper.GetDevStatus2(strMac, authorization, timestamp, nonce);
+            long timestamp1 = 0;// GetTimeStampTen();
+            int nonce = 0;// (int)(rd.NextDouble() * 1e8);
+
+            string authorization = BuildAuthorization(HttpHelper.API_DevOnlineStatus, ref nonce, ref timestamp1);
+
+            var rtnResp = HttpHelper.GetDevStatus2(strMac, authorization, timestamp1, nonce);
             if (rtnResp != null && rtnResp.IsSuccess)
             {
                 var item = rtnResp.Data;
@@ -327,23 +331,38 @@ namespace WifiXiaoBoTest
         {
             string strMac = txtMac.Text.Trim();
 
-            timestamp = GetTimeStampTen();
-            int nonce = (int)(rd.NextDouble() * 1e8);
-            Console.WriteLine(string.Format("timestamp:{0},nonce:{1}", timestamp, nonce));
-            string strResult = string.Format("accept:{0}*signature-nonce:{1}*signature-version:{2}*timestamp:{3}*{4}", accessType, nonce, "1.0", timestamp, HttpHelper.API_Mixed);
 
-            string cryptoResult = HmacSHA1(strResult, accessSecret);//Base64String
-            string authorization = string.Format("qwwg {0}:{1}", accessId, cryptoResult);
+
+            //string strResult = string.Format("accept:{0}*signature-nonce:{1}*signature-version:{2}*timestamp:{3}*{4}", accessType, nonce, "1.0", timestamp, HttpHelper.API_Mixed);
+
+            //string cryptoResult = HmacSHA1(strResult, accessSecret);//Base64String
+            //string authorization = string.Format("qwwg {0}:{1}", accessId, cryptoResult);
+
+            long timestamp1 = 0;// GetTimeStampTen();
+            int nonce = 0;// (int)(rd.NextDouble() * 1e8);
+
+            string authorization = BuildAuthorization(HttpHelper.API_Mixed, ref nonce, ref timestamp1);
 
             MixedPlayParam playParam = new MixedPlayParam();
             playParam.Mac = strMac;
             playParam.MixedParam = "20,0,10,0,40,50";//
 
-            var rtnResp = HttpHelper.MultiPlay(playParam, authorization, timestamp, nonce);
+            var rtnResp = HttpHelper.MultiPlay(playParam, authorization, timestamp1, nonce);
             if (rtnResp != null && rtnResp.IsSuccess)
             {
                 txtInfo.Text = "多路播放成功";
             }
+        }
+
+        private string BuildAuthorization(string apiStr, ref int nonce1,ref long timestamp1)
+        {
+            string strAuthorization = string.Empty;
+            nonce1 = (int)(rd.NextDouble() * 1e8);
+            timestamp1 = GetTimeStampTen();
+            string strResult = string.Format("accept:{0}*signature-nonce:{1}*signature-version:{2}*timestamp:{3}*{4}", accessType, nonce1, "1.0", timestamp1, apiStr);
+            string cryptoResult = HmacSHA1(strResult, accessSecret);//Base64String
+            strAuthorization = string.Format("qwwg {0}:{1}", accessId, cryptoResult);
+            return strAuthorization;
         }
     }
 }
