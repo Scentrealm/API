@@ -3,10 +3,12 @@
 ## 请求头
 
 请参考签名机制文档中的公共请求头列表
+[签名机制](./signature.md)
 
 ## HOST 地址
 
-https://xiaobo.qiweiwangguo.com
+测试环境：https://txiaobo.qiweiwangguo.com
+生产环境：https://xiaobo.qiweiwangguo.com
 
 ## 资源文件地址
 
@@ -137,6 +139,8 @@ POST
 	"code":200
 }
 ```
+
+[根据 no，可以批量获取气味名称等信息](https://github.com/Scentrealm/API/tree/main?tab=readme-ov-file#3%E6%B0%94%E5%91%B3%E4%BF%A1%E6%81%AF%E6%89%B9%E9%87%8F%E6%9F%A5%E8%AF%A2)
 
 ## 4、单路播放气味
 
@@ -435,4 +439,3 @@ POST json格式
 | type | String | 消息类型  | execStart、execComplete、networkConnected、powerDisconnected |
 | status | int | 消息结果 | 1 |
 | remark | String | 备注消息 |  |
-
