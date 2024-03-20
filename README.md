@@ -144,6 +144,9 @@ POST
 
 ### Demo 批量获取气味数据
 ```javascript
+    import axios from 'axios';
+    import crypto from 'crypto-js';
+    
     const accessId = '$accessid';
     const accessSecret = '$accessSecret';
     const accessType = 'application/json';
@@ -175,4 +178,3 @@ POST
     });
 
 ```
-
