@@ -252,7 +252,7 @@ POST
 
 ```json
 {
-	"msg":200,
+	"msg":"success",
 	"data":{
 		"id":"as89d7fa980mq78gq3weqj34k5o12m0c",
 		"version":"1.0",
@@ -442,3 +442,54 @@ POST json格式
 | type | String | 消息类型  | execStart、execComplete、networkConnected、powerDisconnected |
 | status | int | 消息结果 | 1 |
 | remark | String | 备注消息 |  |
+
+
+## 12、固件列表
+
+查询可用的固件列表
+
+### url 地址
+
+/api/partner/device/firmware
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| mac | String | 设备MAC地址 | 78:21:84:75:32:2E |
+
+
+### 返回数据
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| version | String | 版本号 | 2.0.1 |
+
+## 13、升级固件
+
+### url 地址
+
+/api/partner/device/upgrade
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| mac | String | 设备MAC地址 | 78:21:84:75:32:2E |
+| version | String | 版本号 | 2.0.1 |
+
+### 返回数据
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| request_id      | String    | 该请求的唯一标识符  | 67A08B93-7320-5DFB-8FC2-C9C408F351C1 |
+
+### 返回示例
+
+```json
+{
+	"msg":"success",
+	"request_id": "67A08B93-7320-5DFB-8FC2-C9C408F351C1",
+	"code":200
+}
+```
