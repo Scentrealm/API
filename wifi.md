@@ -71,7 +71,7 @@ POST
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
 | charging_state | int    | 充电状态        | 1 |
-| version        | String | 设备版本号      | 1.0.4 |
+| version        | String | 固件版本号      | 1.0.4 |
 | voltage        | float  | 剩余电压        | 3.7 |
 | wifi           | String | WiFi名称        | ATPX 4869 4G |
 | time           | String | 最近一次上报时间 | 2023-02-10 12:17:07 |
