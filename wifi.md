@@ -255,7 +255,7 @@ POST
 	"msg":"success",
 	"data":{
 		"id":"as89d7fa980mq78gq3weqj34k5o12m0c",
-		"version":"1.0",
+		"version":"1.0",  // 该版本号不是设备固件版本号，无参考意义
 		"time":1074307276
 	},
 	"code":200
