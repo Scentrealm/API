@@ -1,13 +1,13 @@
-# Wifi设备控制 API
+# Wi-Fi设备控制 API
 
-## 请求头
+## 请求头 Headers
 
 请参考签名机制文档中的公共请求头列表
 [签名机制](./signature.md)
 
 [签名校验工具](https://scentrealm.com/api-tools)
 
-[code码说明](./statusCode.md)
+[API 状态码说明](./code.md)
 
 ## HOST 地址
 
