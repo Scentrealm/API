@@ -5,17 +5,15 @@
 请参考签名机制文档中的公共请求头列表
 [签名机制](./signature.md)
 
-[签名校验工具](https://scentrealm.com/test)
+[签名校验工具](https://scentrealm.com/api-tools)
+
+[code码说明](./statusCode.md)
 
 ## HOST 地址
 
 测试环境：https://txiaobo.qiweiwangguo.com
 
 生产环境：https://xiaobo.qiweiwangguo.com
-
-## 资源文件地址
-
-无
 
 ## 请求方式
 
