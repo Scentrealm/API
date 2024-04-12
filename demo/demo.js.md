@@ -37,4 +37,4 @@
 ```
 
 
-C# Demo 请参考 Demos 目录下
+C# Demo 请参考 WifiXiaoBoTest 目录下

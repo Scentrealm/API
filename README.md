@@ -6,6 +6,8 @@ HTTP 接口需要通过签名校验，获取 key 请联系相关商务
 
 [签名校验机制](./signature.md)
 
+[签名校验工具](https://scentrealm.com/api-tools?flag=test)
+
 ## API 状态码说明
 
 [API请求的状态码列表](./code.md)
@@ -44,4 +46,4 @@ Wi-Fi 版本气味小播可以通过 TCP 协议对设备进行配网操作，让
 
 ## 操作 Demo
 
-[操作 Demo](./demo.md)
+[操作 Demo](./demo/demo.js.md)

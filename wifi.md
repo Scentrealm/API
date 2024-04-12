@@ -5,7 +5,7 @@
 请参考签名机制文档中的公共请求头列表
 [签名机制](./signature.md)
 
-[签名校验工具](https://scentrealm.com/api-tools)
+[签名校验工具](https://scentrealm.com/api-tools?flag=test)
 
 [API 状态码说明](./code.md)
 
