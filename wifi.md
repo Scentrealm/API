@@ -491,3 +491,34 @@ POST json格式
 	"code":200
 }
 ```
+
+## 14、升级固件(批量)
+
+批量升级设备固件，一次最多100台设备
+
+### url 地址
+
+/api/partner/device/upgradeBatch
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| macs | Arrya | 设备MAC地址 |  |
+| version | String | 版本号 | 2.0.1 |
+
+### 返回数据
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| request_id      | String    | 该请求的唯一标识符  | 67A08B93-7320-5DFB-8FC2-C9C408F351C1 |
+
+### 返回示例
+
+```json
+{
+	"msg":"success",
+	"request_id": "67A08B93-7320-5DFB-8FC2-C9C408F351C1",
+	"code":200
+}
+```
