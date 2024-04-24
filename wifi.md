@@ -504,7 +504,7 @@ POST json格式
 
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
-| macs | Arrya | 设备MAC地址 |  |
+| macs | Array | 设备MAC地址 |  |
 | version | String | 版本号 | 2.0.1 |
 
 ### 返回数据
