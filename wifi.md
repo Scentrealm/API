@@ -96,13 +96,13 @@ POST
 
 ### url 地址
 
-/api/partner/device/info
+/api/partner/device/infoBatch
 
 ### 请求参数
 
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
-| macs | Array | List | 设备MAC地址 | 78:21:84:75:32:2E |
+| macs | Array | 设备MAC地址 | 78:21:84:75:32:2E |
 
 ### 返回数据
 
@@ -561,7 +561,7 @@ POST json格式
 
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
-| macs | Array | List | 设备MAC地址 |  |
+| macs | Array | 设备MAC地址 |  |
 | version | String | 版本号 | 2.0.1 |
 
 ### 返回数据
