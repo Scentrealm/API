@@ -52,7 +52,7 @@ POST
 }
 ```
 
-## 2、设备信息
+## 2.1、设备信息
 
 ### url 地址
 
@@ -87,6 +87,63 @@ POST
 		"wifi": "ATPX 4869 4G"
 	},
 	"code":200
+}
+```
+
+## 2.2、设备信息（批量查询）
+
+批量查询设备信息，一次最多100台设备
+
+### url 地址
+
+/api/partner/device/info
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| macs | Array | List | 设备MAC地址 | 78:21:84:75:32:2E |
+
+### 返回数据
+
+*如果info为null， 表示未查询到数据信息*
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| charging_state | int    | 充电状态        | 1 |
+| version        | String | 固件版本号      | 1.0.4 |
+| voltage        | float  | 剩余电压        | 3.7 |
+| wifi           | String | WiFi名称        | ATPX 4869 4G |
+| time           | String | 最近一次上报时间 | 2023-02-10 12:17:07 |
+
+### 返回示例
+
+```json
+{
+  "msg": "success",
+  "data": [
+    {
+      "mac": "08:d1:f9:0e:fa:2c",
+      "info": {
+        "charging_state": 2,
+        "time": "2024-04-28 15:07:27",
+        "version": "2.0.28",
+        "voltage": 4.18,
+        "wifi": "hide-wifi"
+      }
+    },
+    {
+      "mac": "30:c9:22:e0:ed:1c",
+      "info": {
+        "charging_state": 3,
+        "time": "2024-04-26 19:18:37",
+        "version": "2.0.34",
+        "voltage": 4.1,
+        "wifi": "FAST_D6EA"
+      }
+    }
+  ],
+  "code": 200
 }
 ```
 
@@ -423,7 +480,7 @@ POST
 
 ## 11、通知回调
 
-支持单路、多路、停止播放的结果，以及配网成功，断电状态的通知回调
+支持单路、多路、停止播放的结果，以及配网成功、升级完成、断电状态的通知回调
 
 ### url 地址
 
@@ -437,7 +494,7 @@ POST json格式
 | --- | --- | --- | --- |
 | mac | String | 设备MAC地址 | 78:21:84:75:32:2E |
 | request_id | String | 该请求的唯一标识符（配网成功、断电状态的回调时为空） | 67A08B93-7320-5DFB-8FC2-C9C408F351C1 |
-| type | String | 消息类型  | execStart、execComplete、networkConnected、powerDisconnected |
+| type | String | 消息类型  | execStart、execComplete、networkConnected、powerDisconnected、upgradeComplete |
 | status | int | 消息结果 | 1 |
 | remark | String | 备注消息 |  |
 
@@ -504,7 +561,7 @@ POST json格式
 
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
-| macs | Array | 设备MAC地址 |  |
+| macs | Array | List | 设备MAC地址 |  |
 | version | String | 版本号 | 2.0.1 |
 
 ### 返回数据
