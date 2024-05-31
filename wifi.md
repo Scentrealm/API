@@ -579,3 +579,63 @@ POST json格式
 	"code":200
 }
 ```
+
+## 15、设备胶囊信息（实时查询）
+
+### url 地址
+
+/api/partner/device/info2
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| mac | String | 设备MAC地址 | 78:21:84:75:32:2E |
+
+### 返回数据
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| charging_state | int    | 充电状态        | 1 |
+| version        | String | 固件版本号      | 1.0.4 |
+| voltage        | float  | 剩余电压        | 3.7 |
+| capsule        | Array  | 胶囊信息        |     |
+| no             | int    | 气味编号        | 254 |
+| channel        | int    | 通道            | 1 |
+| life           | int    | 剩余寿命        | 82340 |
+| status         | int    | 工作状态：1-工作中、0-未工作  | 1 |
+
+### 返回示例
+
+```json
+{
+	"msg":"success",
+	"data":{
+		"chargingState": 1,
+		"version": "2.0.45",
+		"voltage": 3.7,
+		"capsule": [
+            {
+                "no":254,
+                "channel":1,
+                "life":82340,
+                "status":0
+            },
+            {
+                "no":732,
+                "channel":2,
+                "life":12300,
+                "status":1
+            },
+            ...,
+            {
+                "no":522,
+                "channel":6,
+                "life":12200,
+                "status":0
+            }
+        ]
+	},
+	"code":200
+}
+```
