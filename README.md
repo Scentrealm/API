@@ -49,6 +49,10 @@ Wi-Fi 版本气味小播可以通过 TCP 协议对设备进行配网操作，让
 
 [Wi-Fi 设备配网协议](./ap.md)
 
+普通 Wi-Fi 版本可以通过 UDP 协议配网
+
+[Wi-Fi 设备配网协议](./ap-udp.md)
+
 ## 操作 Demo
 
 [操作 Demo](./demo/demo.js.md)
