@@ -10,7 +10,7 @@ AP配网，即传统配网，Wifi设备需要连接上路由器才能上网。
 
 1. 设备顶部按键连续按5次，顶部呼吸灯闪烁，进入AP配网模式
 2. 打开气味小播小程序，搜索 wifi （**需要授权定位**）
-3. 找到 “bemfa_” 开头的热点 （设备约定配网名称前缀）
+3. 找到 “scent” 开头的热点 （设备约定配网名称前缀）
 4. 连接热点
 5. 广播 UDP 包 （例如：json，{ xxx }）
 6. 客户端监听 UDP 消息，是否配网成功
@@ -31,7 +31,7 @@ wx.startWifi({
     wx.onGetWifiList(wf => {
       if (wf && wf.wifiList.length) {
         me.setData({
-          wifiListArray: wf.wifiList.filter(item => item.SSID.indexOf('bemfa_') >= 0)
+          wifiListArray: wf.wifiList.filter(item => item.SSID.indexOf('scent') >= 0)
         })
       }
     })
