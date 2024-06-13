@@ -74,9 +74,9 @@ const udp = wx.createUDPSocket()
 const port = udp.bind()
 
 udp.send({
-  address: '255.255.255.255',
+  address: '192.168.4.1',
   port: 8266,
-  message: '{"cmdType":1,"ssid":"ScentRealm_Ting2","password":"qwwg2017"}'
+  message: '{"cmdType":1,"ssid":"wifi-name","password":"pwd"}'
 })
 
 udp.onMessage(res => {
@@ -84,7 +84,7 @@ udp.onMessage(res => {
 })
 ```
 
-💡  需要指定端口，ip 设置为 255.255.255.255 表示广播， message 为json，包含wifi名称和密码。
+💡  需要指定端口，ip 设置为 192.168.4.1 表示广播， message 为json，包含wifi名称和密码。
 
 ### 设备通信约定
 
