@@ -102,7 +102,7 @@ const udp = wx.createUDPSocket()
 const port = udp.bind()
 
 udp.send({
-  address: '255.255.255.255',
+  address: '192.168.4.1',
   port: 8266,
   message: '{"cmdType":1,"ssid":"ScentRealm_Ting2","password":"pwd"}'
 })
