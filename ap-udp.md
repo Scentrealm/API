@@ -1,6 +1,6 @@
-# 配网协议 (UDP)
+# 配网协议（UDP）
 
-# 小程序实现 AP 配网
+# 小程序实现AP配网
 
 AP配网，即传统配网，Wifi设备需要连接上路由器才能上网。
 
@@ -14,6 +14,34 @@ AP配网，即传统配网，Wifi设备需要连接上路由器才能上网。
 4. 连接热点
 5. 广播 UDP 包 （例如：json，{ xxx }）
 6. 客户端监听 UDP 消息，是否配网成功
+
+### 配网协议
+
+1. 连接上小播热点后，发送 UDP 包；
+
+```json
+{
+  "cmdType": 1,
+  "ssid": "wifi-name",
+  "password": "password",
+}
+```
+
+1. 小播收到 UDP 信息后返回，表示设备端已经收到wifi信息；
+
+```json
+{
+	"cmdType": 2
+}
+```
+
+1. 客户端收到小播 UDP 信息后，发送包，客户端断开热点，连接原来的wifi；
+
+```json
+{
+	"cmdType": 3
+}
+```
 
 ### 完整示例
 
@@ -74,9 +102,9 @@ const udp = wx.createUDPSocket()
 const port = udp.bind()
 
 udp.send({
-  address: '192.168.4.1',
+  address: '255.255.255.255',
   port: 8266,
-  message: '{"cmdType":1,"ssid":"wifi-name","password":"pwd"}'
+  message: '{"cmdType":1,"ssid":"ScentRealm_Ting2","password":"pwd"}'
 })
 
 udp.onMessage(res => {
@@ -84,7 +112,7 @@ udp.onMessage(res => {
 })
 ```
 
-💡  需要指定端口，ip 设置为 192.168.4.1 表示广播， message 为json，包含wifi名称和密码。
+💡  需要指定端口，ip 设置为 255.255.255.255 表示广播， message 为json，包含wifi名称和密码。
 
 ### 设备通信约定
 
