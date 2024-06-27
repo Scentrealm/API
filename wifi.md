@@ -326,7 +326,7 @@ POST
 }
 ```
 
-## 8、多路播放气味
+## 8、混香播放气味
 
 ### url 地址
 
@@ -636,6 +636,37 @@ POST json格式
             }
         ]
 	},
+	"code":200
+}
+```
+
+## 16、多路同时播放气味
+
+### url 地址
+
+/api/partner/device/playChannels
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| mac | String | 设备MAC地址 | 78:21:84:75:32:2E |
+| channel | String | 播放气路数，英文逗号隔开 | 1,3,5（表示1路、3路、5路） |
+| times | int | 播放时长（秒） | 600 |
+| concentration | String | 浓度：low（低）、medium（中）、high（高） | medium |
+
+### 返回数据
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| request_id      | String    | 该请求的唯一标识符  | 67A08B93-7320-5DFB-8FC2-C9C408F351C1 |
+
+### 返回示例
+
+```json
+{
+	"msg":"success",
+	"request_id": "67A08B93-7320-5DFB-8FC2-C9C408F351C1",
 	"code":200
 }
 ```
