@@ -26,7 +26,7 @@ POST
 
 ### url 地址
 
-/api/partner/scent?p=1&n=15
+/api/partner/scent
 
 ### 请求参数
 
