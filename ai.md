@@ -12,7 +12,7 @@ POST
 
 ### url 地址
 
-/api/xiaobo
+/api/conversation
 
 ### 请求参数
 
