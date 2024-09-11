@@ -23,6 +23,9 @@ POST
 | message | String | 对话文本 | 请使用两种气味，调出一个可以缓解疲劳的气味。 |
 | originals | Array | 上下文使用，可为空 |  |
 
+
+names，scents 使用英文逗号隔开。
+
 ### 返回示例
 
 ```json
