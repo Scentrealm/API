@@ -1,4 +1,4 @@
-## Demo 批量获取气味数据
+## Demo 签名校验
 
 ```javascript
     import axios from 'axios';
@@ -24,6 +24,22 @@
     // 批量获取气味列表demo。 如果需要其他功能，请将url改为对应功能的 url
     axios.post('https://xiaobo.qiweiwangguo.com/api/partner/scent/list', {
       nos: '1,2,3',
+    }, {
+      headers: {
+        'Authorization': authorization,
+        'timestamp': timestamp,
+        'signature-nonce': nonce,
+        'signature-version': '1.0',
+        'accept': 'application/json'
+      }
+    });
+
+
+    // 使用 AI 对话
+    axios.post('https://xiaobo.qiweiwangguo.com/api/partner/device/chat', {
+      nos: '123,2,3,4,5,60',
+      text: '调配一个令人开心愉悦的气味',
+      mac: '78:21:84:75:32:2E'
     }, {
       headers: {
         'Authorization': authorization,
