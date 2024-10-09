@@ -1,4 +1,4 @@
-# AI助手 API（试用版）
+# AI助手 API
 
 ## HOST 地址
 
@@ -38,7 +38,7 @@ POST
 
 nos 使用英文逗号隔开。
 
-前面方式参考 [签名校验机制](./signature.md)
+Header 签名方式参考 [签名校验机制](./signature.md)
 
 ### 返回示例
 
