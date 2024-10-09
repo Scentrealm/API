@@ -2,7 +2,9 @@
 
 ## HOST 地址
 
-测试环境：https://ai.qiweiwangguo.com
+测试环境：https://txiaobo.qiweiwangguo.com
+
+生产环境：https://xiaobo.qiweiwangguo.com
 
 ## 请求方式
 
@@ -12,40 +14,48 @@ POST
 
 ### url 地址
 
-/api/conversation
+/api/partner/device/chat
+
+### Header
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| Authorization | String | 无 | qwwg nqqqnaw1mGiKodd:0doQNmL3gIbe2FoBDFUqwxBBsgE=	 |
+| accept | String | 无 | application/json |
+| timestamp | Number | 无 | 1728440061 |
+| signature-nonce | String | 无 | 53266272 |
+| signature-version | String | 无 | 1.0 |
+
 
 ### 请求参数
 
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
-| names | String | 设备的气味名 | Paris wood,桂花,CK ONE |
-| scents | String | 设备胶囊名 | 木语禅香,烟雨月桂,云缕缥缈 |
-| message | String | 对话文本 | 请使用两种气味，调出一个可以缓解疲劳的气味。 |
-| originals | Array | 上下文使用，可为空 |  |
+| mac | String | 设备 mac 地址 | 78:21:84:75:32:2E	 |
+| nos | String | 气味编号（英文逗号拼接） | 123,2,3,4,5,60	 |
+| text | String | 对话文本 | 调配一个开心的气味 |
 
 
-names，scents 使用英文逗号隔开。
+nos 使用英文逗号隔开。
+
+前面方式参考 [签名校验机制](./signature.md)
 
 ### 返回示例
 
 ```json
 {
-  "code": 200,
-  "success": true,
+  "msg": "success",
   "data": {
-    "code": "mixedPlay([{\"channelId\": 1, \"time\": 30000}, {\"channelId\": 2, \"time\": 30000}]);",
-    "description": "正在混合播放木语禅香和烟雨月桂的香氛，每种持续时间30秒。",
-    "remark": "混合木语禅香和烟雨月桂的香氛，可以帮助缓解疲劳，令人感到恬静与舒心。"
-  }
+    "introduction": "这款气味配方以清新、甜美的香调为主，融合了绿野芬芳的清新草本气息、柠檬的酸甜果香、森林的深邃木香，以及红糖的淡淡甜香。这些香料的组合能够营造出一种愉悦、轻松的氛围，帮助提升情绪，带来开心的感觉。",
+    "proportion": {
+      "2": 20,
+      "3": 30,
+      "4": 10,
+      "5": 25,
+      "60": 15,
+      "123": 0
+    }
+  },
+  "code": 200
 }
 ```
-
-### code 指令说明
-
-mixedPlay: 多路播放
-
-singlePlay: 单路播放
-
-music: 音乐相关
-
-clock: 闹钟相关
