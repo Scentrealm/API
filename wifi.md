@@ -68,7 +68,7 @@ POST
 
 | 参数 | 类型 | 说明 | 示例值 |
 | --- | --- | --- | --- |
-| charging_state | int    | 充电状态        | 1 |
+| charging_state | int    | 充电状态        | 1-未充电，2-充满电，3-充电中 |
 | version        | String | 固件版本号      | 1.0.4 |
 | voltage        | float  | 剩余电压        | 3.7 |
 | wifi           | String | WiFi名称        | ATPX 4869 4G |
