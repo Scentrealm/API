@@ -119,10 +119,11 @@ POST
     "data": [
         {
             "no": 1,
-            "name": "柠檬草",
+            "name": "柠檬草", // 胶囊名
             "img": "/scents/ningmengcaoheshuweicao.png",
             "color": "#A9DAD7",
             "period": 73500,
+            "realname": "柠檬鼠尾", // 气味名
             "desc":""
         },
         {
@@ -131,6 +132,7 @@ POST
             "img": "/scents/xiaoshanpo.png",
             "color": "#C2E593",
             "period": 72000,
+            "realname": "小山坡",
             "desc":""
         },
         {
@@ -139,6 +141,7 @@ POST
             "img": "/scents/ningmeng.png",
             "color": "#C2E593",
             "period": 105000,
+            "realname": "柠檬",
             "desc":""
         }
     ],
