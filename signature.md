@@ -12,7 +12,7 @@
 
 | 名称 | 类型 | 是否必选 | 描述 |
 | --- | --- | --- | --- |
-| access | String | 是 | 接受的返回结果的类型。目前只支持JSON类型，取值：application/json。 |
+| accept | String | 是 | 接受的返回结果的类型。目前只支持JSON类型，取值：application/json。 |
 | timestamp | Number | 是 | 当前时间戳（秒） |
 | signature-nonce | String | 是 | 签名唯一随机数。用于防止网络重放攻击，建议您每一次请求都使用不同的随机数。 |
 | signature-version | String | 是 | 签名算法版本。取值：1.0。 |
