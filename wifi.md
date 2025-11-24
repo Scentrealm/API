@@ -670,3 +670,33 @@ POST json格式
 	"code":200
 }
 ```
+
+
+## 17、设备呼吸灯开关
+
+### url 地址
+
+/api/partner/device/breathingLight
+
+### 请求参数
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| mac | String | 设备MAC地址 | 78:21:84:75:32:2E |
+| switch | int | 开关 | 0-关闭；1-开启 |
+
+### 返回数据
+
+| 参数 | 类型 | 说明 | 示例值 |
+| --- | --- | --- | --- |
+| request_id      | String    | 该请求的唯一标识符  | 67A08B93-7320-5DFB-8FC2-C9C408F351C1 |
+
+### 返回示例
+
+```json
+{
+	"msg":"success",
+	"request_id": "67A08B93-7320-5DFB-8FC2-C9C408F351C1",
+	"code":200
+}
+```
